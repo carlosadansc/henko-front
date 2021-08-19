@@ -6,6 +6,11 @@
           <img class="logo" src="../assets/img/henko-logo.svg" alt />
         </a>
         <div :class="showMenu ? 'nav-filters nav-active' : 'nav-filters'">
+          <i
+            v-if="showClearFilter"
+            class="fas fa-backspace cleat-filter-btn"
+            @click="clearFilter"
+          />
           <p class="mb-2">Operación</p>
           <div
             class="btn-group mb-4 btn-group-sm"
@@ -279,6 +284,11 @@
             Filtro de búsqueda
           </h5>
           <div class="card px-3 py-4">
+            <i
+              v-if="showClearFilter"
+              class="fas fa-backspace cleat-filter-btn"
+              @click="clearFilter"
+            />
             <p class="mb-2">Operación</p>
             <div
               class="btn-group mb-5 btn-group-sm"
@@ -694,6 +704,20 @@ export default {
     pages() {
       return Math.ceil(this.pagination.total / this.pagination.limit);
     },
+    showClearFilter() {
+      return (
+        this.searchData.operation_type ||
+        this.searchData.min_price ||
+        this.searchData.max_price ||
+        this.searchData.min_bedrooms ||
+        this.searchData.min_bathrooms ||
+        this.searchData.min_parking_spaces ||
+        this.searchData.min_construction_size ||
+        this.searchData.max_construction_size ||
+        this.searchData.min_lot_size ||
+        this.searchData.max_lot_size
+      );
+    },
   },
 
   methods: {
@@ -767,6 +791,21 @@ export default {
         console.log(error);
       }
     },
+    clearFilter() {
+      this.searchData = {
+        page: 1,
+        operation_type: null,
+        min_price: null,
+        max_price: null,
+        min_bedrooms: null,
+        min_bathrooms: null,
+        min_parking_spaces: null,
+        min_construction_size: null,
+        max_construction_size: null,
+        min_lot_size: null,
+        max_lot_size: null,
+      };
+    },
   },
 };
 </script>
@@ -779,9 +818,18 @@ export default {
 .ads-img {
   width: 100%;
   margin-bottom: 30px;
-  object-fit:  contain;
+  object-fit: contain;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.cleat-filter-btn {
+  cursor: pointer;
+  color: #ff6b11;
+  font-size: 1.3rem;
+  transition: 0.2s ease-in;
+  position: absolute;
+  right: 15px;
 }
 
 .listing {
@@ -794,9 +842,9 @@ export default {
     }
   }
 
-  .subtitle-listing{
+  .subtitle-listing {
     font-size: 1.2rem;
-    font-family:"Product Sans Bold", Arial, sans-serif !important;
+    font-family: "Product Sans Bold", Arial, sans-serif !important;
   }
 }
 .card {
@@ -867,6 +915,10 @@ export default {
     transform: translate3d(0, -100%, 0);
   }
 
+  .cleat-filter-btn {
+    right: 30px;
+  }
+
   .logo {
     img {
       height: 25px;
@@ -877,7 +929,7 @@ export default {
 
   .nav-filters {
     background-color: #ffffff;
-    padding: 80px 30px 80px 30px;
+    padding: 100px 30px 80px 30px;
     position: absolute;
     right: 0;
     top: 0;
