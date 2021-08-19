@@ -116,10 +116,10 @@ export default {
       }else{
          emailjs
         .sendForm(
-          "service_e2cn7qk",
-          "template_b1k8eqc",
+          "service_wllniy2",
+          "template_rx4bt65",
           e.target,
-          "user_Mb3kT5PFMnQ45AERidp6X"
+          "user_KlhwQzG7EmnguJ6n8hwtu"
         )
         .then(
           (result) => {

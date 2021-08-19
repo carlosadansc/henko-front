@@ -744,6 +744,9 @@ export default {
       this.searchData.page = page;
       this.getProperties();
     },
+    goTo(url) {
+      window.open(url, "_blank");
+    },
     goToHome() {
       this.$router.push("/");
     },

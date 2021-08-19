@@ -8,7 +8,7 @@ import './firebase'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import{ init } from 'emailjs-com';
-init("user_Mb3kT5PFMnQ45AERidp6X");
+init("user_KlhwQzG7EmnguJ6n8hwtu");
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 // import style
@@ -21,7 +21,8 @@ AOS.init();
 Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'http://localhost:3000/henko-api/v1/';
+//axios.defaults.baseURL = 'http://localhost:3000/henko-api/v1/';
+axios.defaults.baseURL = 'https://henkosite.herokuapp.com/henko-api/v1/';
 
 new Vue({
   router,
