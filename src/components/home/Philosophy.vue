@@ -214,6 +214,7 @@ export default {
   height: 100vh;
   width: 100%;
   padding: 30px;
+  margin-bottom: 50px;
   .philosophy-text {
     height: 60vh;
   }
@@ -279,6 +280,7 @@ export default {
   .philosophy {
     height: 100vh;
     padding: 30px;
+    margin-bottom: 0;
     .philosophy-text {
       height: 25vh;
     }
