@@ -2,7 +2,7 @@
   <div>
     <div class="listing container-fluid">
       <nav id="filter-nav" :class="{ 'hidden-navbar': !showNavbar }">
-        <a class="logo" href="#">
+        <a class="logo" href="/">
           <img class="logo" src="../assets/img/henko-logo.svg" alt />
         </a>
         <div :class="showMenu ? 'nav-filters nav-active' : 'nav-filters'">
@@ -583,7 +583,7 @@
                   href=""
                   tabindex="-1"
                   aria-disabled="true"
-                  >Previous</a
+                  >Anterior</a
                 >
               </li>
               <li
@@ -610,7 +610,7 @@
                   aria-disabled="true"
                   @click.prevent="nextPage()"
                   href=""
-                  >Next</a
+                  >Siguiente</a
                 >
               </li>
             </ul>
@@ -621,6 +621,12 @@
           <h5 class="subtitle-listing green-text mt-0 mb-4">
             Espacio publicitario
           </h5>
+
+          <div v-if="loadingAds" class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
 
           <img
             v-for="ad in ads"
@@ -676,6 +682,7 @@ export default {
     pagination: null,
 
     ads: [],
+    loadingAds: false,
   }),
 
   created() {
@@ -776,9 +783,8 @@ export default {
     },
     async getAds() {
       try {
+        this.loadingAds = true;
         const resDB = await db.collection("ads").get();
-        console.log(resDB);
-
         resDB.forEach((res) => {
           this.ads.push({
             id: res.id,
@@ -786,9 +792,10 @@ export default {
             url: res.data().url,
           });
         });
-        console.log(this.ads);
+        this.loadingAds = false;
       } catch (error) {
         console.log(error);
+        this.loadingAds = false;
       }
     },
     clearFilter() {
