@@ -166,7 +166,7 @@ nav {
 .burger {
   display: block;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: transparent;
   padding: 10px 7px;
   div {
     width: 25px;

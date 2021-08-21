@@ -8,7 +8,7 @@
         <div :class="showMenu ? 'nav-filters nav-active' : 'nav-filters'">
           <i
             v-if="showClearFilter"
-            class="fas fa-backspace cleat-filter-btn"
+            class="fas fa-backspace clean-filter-btn"
             @click="clearFilter"
           />
           <p class="mb-2">Operación</p>
@@ -265,10 +265,12 @@
           </button>
         </div>
 
-        <div :class="showMenu ? 'burger toggle' : 'burger'" @click="toggleMenu">
-          <div class="line1"></div>
+        <div class="burger" @click="toggleMenu">
+          <i v-if="!showMenu" class="fas fa-filter orange-text filter-icon"></i>
+          <i v-if="showMenu" class="fas fa-times green-text filter-icon x"></i>
+          <!-- <div class="line1"></div>
           <div class="line2"></div>
-          <div class="line3"></div>
+          <div class="line3"></div> -->
         </div>
       </nav>
 
@@ -286,7 +288,7 @@
           <div class="card px-3 py-4">
             <i
               v-if="showClearFilter"
-              class="fas fa-backspace cleat-filter-btn"
+              class="fas fa-backspace clean-filter-btn"
               @click="clearFilter"
             />
             <p class="mb-2">Operación</p>
@@ -557,7 +559,7 @@
             :property="property"
           />
 
-          <div v-if="loading" class="d-flex justify-content-center">
+          <div v-if="loading" class="d-flex justify-content-center load-content">
             <div class="spinner-border" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
@@ -822,6 +824,10 @@ export default {
   display: none;
 }
 
+.load-content{
+  height: 100vh !important;
+}
+
 .ads-img {
   width: 100%;
   margin-bottom: 30px;
@@ -830,7 +836,7 @@ export default {
   cursor: pointer;
 }
 
-.cleat-filter-btn {
+.clean-filter-btn {
   cursor: pointer;
   color: #ff6b11;
   font-size: 1.3rem;
@@ -922,7 +928,7 @@ export default {
     transform: translate3d(0, -100%, 0);
   }
 
-  .cleat-filter-btn {
+  .clean-filter-btn {
     right: 30px;
   }
 
@@ -956,15 +962,23 @@ export default {
   .burger {
     display: block;
     cursor: pointer;
-    background-color: #ffffff;
+    background-color: transparent;
     padding: 10px 7px;
-    div {
+    z-index: 1;
+    .filter-icon{
+      font-size: 1.3rem;
+      transition: 0.3s ease-in-out;
+    }
+    .x{
+       font-size: 1.5rem;
+    }
+    /* div {
       width: 25px;
       height: 3px;
       margin: 5px;
       background: #053844;
       transition: 0.3s ease-in-out;
-    }
+    } */
   }
 
   .nav-active {
@@ -972,7 +986,7 @@ export default {
     visibility: visible;
   }
 
-  .toggle {
+  /* .toggle {
     .line1 {
       transform: rotate(-45deg) translate(-5px, 6px);
     }
@@ -982,7 +996,7 @@ export default {
     .line3 {
       transform: rotate(45deg) translate(-5px, -6px);
     }
-  }
+  } */
 
   .mobile-mt {
     margin-top: 100px;
