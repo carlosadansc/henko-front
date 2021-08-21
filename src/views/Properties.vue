@@ -814,6 +814,7 @@ export default {
         min_lot_size: null,
         max_lot_size: null,
       };
+      this.getProperties();
     },
   },
 };
