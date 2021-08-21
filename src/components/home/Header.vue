@@ -58,6 +58,8 @@ export default {
   }
   button {
     margin-top: 50px;
+    background-color: #053844;
+    color: #ffffff;
   }
   img {
     height: calc(100vh - 60px);
