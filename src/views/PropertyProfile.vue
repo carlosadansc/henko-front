@@ -20,7 +20,7 @@
             <div class="row">
               <div class="col col-auto col-md-12 text-md-end">
                 <h1 class="mt-0">
-                  {{ property.operations[0].formatted_amount + " MXN" }}
+                  {{ property.operations[0].formatted_amount + " " + property.operations[0].currency }}
                 </h1>
               </div>
               <div class="col col-auto col-md-12 text-md-end">
@@ -198,7 +198,6 @@ export default {
 
   async mounted() {
     this.property = await HenkoServices.getProperty(this.$route.params.id);
-    console.log(this.property);
   },
 
   methods: {
