@@ -135,7 +135,7 @@ footer {
 /*Desktop view styles----------------------------------------------------------------------------------------------------------------*/
 @media only screen and (min-width: 992px) {
   footer {
-    background: transparent;
+    background: #ffffff;
     height: 8rem;
     display: block;
     color: #053844;

@@ -9,6 +9,7 @@
       <Philosophy />
       <Team />
       <Contact />
+      <Footer />
     </div>
   </div>
 </template>
@@ -19,9 +20,10 @@ import Header from "../components/home/Header.vue";
 import Philosophy from "../components/home/Philosophy.vue";
 import Team from "../components/home/Team.vue";
 import Contact from "../components/home/Contact.vue";
+import Footer from "../components/Footer"
 
 export default {
-  components: { Navbar, Header, Philosophy, Team, Contact },
+  components: { Navbar, Header, Philosophy, Team, Contact, Footer },
   name: "Home",
 
   data: () => ({

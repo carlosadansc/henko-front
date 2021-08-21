@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div id="contacto" class="contact container-fluid">
       <div class="row">
         <div class="col col-12">
@@ -99,19 +98,13 @@
         </div>
       </div>
     </div>
-    <Footer/>
-  </div>
 </template>
 
 <script>
 import emailjs from "emailjs-com";
-import Footer from "../../components/Footer"
 
 export default {
   name: "Contact",
-  components: {
-    Footer
-  },
   data: () => ({
     form: {
       name: null,
@@ -156,8 +149,8 @@ export default {
 
 <style  lang="scss" scoped>
 .contact {
-  height: 100vh;
-  padding: 30px;
+  height: calc(100% + 250px);
+  padding: 30px 30px 0 30px;
   #form_container {
     width: 100%;
     float: left;
@@ -196,9 +189,9 @@ export default {
     }
   }
   .contact-img {
-    height: calc(80% - 3.5rem);
+    height: 250px;
     width: 100%;
-    margin-top: 70px;
+    margin-top: 60px;
   }
 }
 
