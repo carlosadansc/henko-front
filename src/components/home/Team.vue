@@ -1,7 +1,7 @@
 <template>
   <div id="equipo" class="team container-fluid">
     <div class="row">
-      <div class="col col-12 col-md-4">
+      <div class="col col-12 col-md-4" data-aos="zoom-in" data-aos-duration="1000">
         <h1 class="green-text subtitle-text mt-5">
           Quienes hacemos Henko crecemos en la unión.
         </h1>
@@ -14,7 +14,7 @@
         <img class="team-img my-4 mv" src="../../assets/img/team-m.png" alt="" />
         <button class="mt-5" @click.prevent="send">Hablar con un asesor</button>
       </div>
-      <div class="col col-12 col-md-8">
+      <div class="col col-12 col-md-8" data-aos="zoom-in" data-aos-duration="1000">
         <img class="team-img mt-5 dv" src="../../assets/img/team.jpg" alt="" />
       </div>
     </div>

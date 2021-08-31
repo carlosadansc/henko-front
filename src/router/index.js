@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Properties from '../views/Properties.vue'
 import PropertyProfile from '../views/PropertyProfile.vue'
+import Terms from '../views/Terms.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/property/:id',
     name: 'PropertyProfile',
     component: PropertyProfile
+  },
+  {
+    path: '/terms',
+    name: 'Terms',
+    component: Terms
   }
 ]
 

@@ -9,7 +9,9 @@
       <p class="dv">
         <strong class="text-footer-size">@Henko2021</strong>
         <span
-          ><a class="text-footer-size green-text" href=""> Términos y condiciones</a></span
+          ><a class="text-footer-size green-text" @click="goTo('/terms')">
+            Términos y condiciones</a
+          ></span
         >
         |
         <span
@@ -22,13 +24,29 @@
 
     <div class="social-container dv">
       <p class="footer-title social">
-        <span><a href="https://www.facebook.com/henkorealestate" target="_blank">Facebook, </a></span>
-        <span><a href="https://www.instagram.com/henkorealestate/" target="_blank">Instagram, </a></span>
-        <span><a href="https://www.linkedin.com/company/henko-real-estate/mycompany/" target="_blank">LinkedIn</a></span>
+        <span
+          ><a href="https://www.facebook.com/henkorealestate" target="_blank"
+            >Facebook,
+          </a></span
+        >
+        <span
+          ><a href="https://www.instagram.com/henkorealestate/" target="_blank"
+            >Instagram,
+          </a></span
+        >
+        <span
+          ><a
+            href="https://www.linkedin.com/company/henko-real-estate/mycompany/"
+            target="_blank"
+            >LinkedIn</a
+          ></span
+        >
       </p>
       <p class="text-footer-size">
         Made with ❤ by
-        <strong> <a class="text-footer-size green-text" href="#">Async</a> </strong>
+        <strong>
+          <a class="text-footer-size green-text" href="#">Async</a>
+        </strong>
         Agencia Creativa
       </p>
     </div>
@@ -39,13 +57,27 @@
 
     <div class="social-container mv">
       <p class="footer-title social social-link-m">
-        <span><a href="https://www.facebook.com/henkorealestate" target="_blank">Facebook</a></span>
+        <span
+          ><a href="https://www.facebook.com/henkorealestate" target="_blank"
+            >Facebook</a
+          ></span
+        >
       </p>
       <p class="footer-title social social-link-m">
-        <span><a href="https://www.instagram.com/henkorealestate/" target="_blank">Instagram</a></span>
+        <span
+          ><a href="https://www.instagram.com/henkorealestate/" target="_blank"
+            >Instagram</a
+          ></span
+        >
       </p>
       <p class="footer-title social social-link-m">
-        <span><a href="https://www.linkedin.com/company/henko-real-estate/mycompany/" target="_blank">LinkedIn</a></span>
+        <span
+          ><a
+            href="https://www.linkedin.com/company/henko-real-estate/mycompany/"
+            target="_blank"
+            >LinkedIn</a
+          ></span
+        >
       </p>
     </div>
 
@@ -56,7 +88,7 @@
 
     <p class="terms-privacy-policy-mobile">
       <strong>@Henko2021</strong>
-      <span><a href="">Términos y condiciones</a></span>
+      <span><a href="" @click="goTo('/terms')">Términos y condiciones</a></span>
       &
       <span><a href=""> Politicas de privacidad</a></span>
     </p>
@@ -64,7 +96,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Footer",
+  methods: {
+    goTo(path) {
+      let routeData = this.$router.resolve(path);
+      window.open(routeData.href, "_blank");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -78,6 +118,9 @@ footer {
   justify-content: space-around;
   text-align: center;
   padding: 30px 30px 0 30px;
+  a{
+    cursor: pointer;
+  }
 }
 
 .footer-title {
@@ -148,7 +191,7 @@ footer {
   }
 
   .text-footer-size {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .footer-logo img {

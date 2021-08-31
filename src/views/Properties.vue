@@ -54,61 +54,61 @@
 
           <p class="mb-2">Precio ($)</p>
           <div class="input-group mb-4 input-group-sm">
-            <input
-              type="number"
+            <Money
               min="0"
               class="form-control"
               placeholder="Minimo"
               aria-label="Minimo"
               v-model="searchData.min_price"
+              v-bind="money"
             />
-            <input
-              type="number"
+            <Money
               min="0"
               class="form-control"
               placeholder="Maximo"
               aria-label="Maximo"
               v-model="searchData.max_price"
+              v-bind="money"
             />
           </div>
 
           <p class="mb-2">Superficie de terreno (m²)</p>
           <div class="input-group mb-4 input-group-sm">
-            <input
-              type="number"
+            <Money
               min="0"
               class="form-control"
               placeholder="Minimo"
               aria-label="Minimo"
               v-model="searchData.min_lot_size"
+              v-bind="area"
             />
-            <input
-              type="number"
+            <Money
               min="0"
               class="form-control"
               placeholder="Maximo"
               aria-label="Maximo"
               v-model="searchData.max_lot_size"
+              v-bind="area"
             />
           </div>
 
           <p class="mb-2">Superficie construída (m²)</p>
           <div class="input-group mb-4 input-group-sm">
-            <input
-              type="number"
+            <Money
               min="0"
               class="form-control"
               placeholder="Minimo"
               aria-label="Minimo"
               v-model="searchData.min_construction_size"
+              v-bind="area"
             />
-            <input
-              type="number"
+            <Money
               min="0"
               class="form-control"
               placeholder="Maximo"
               aria-label="Maximo"
               v-model="searchData.max_construction_size"
+              v-bind="area"
             />
           </div>
 
@@ -334,61 +334,61 @@
 
             <p class="mb-2">Precio ($)</p>
             <div class="input-group mb-5 input-group-sm">
-              <input
-                type="number"
+              <Money
                 min="0"
                 class="form-control"
                 placeholder="Minimo"
                 aria-label="Minimo"
                 v-model="searchData.min_price"
+                v-bind="money"
               />
-              <input
-                type="number"
+              <Money
                 min="0"
                 class="form-control"
                 placeholder="Maximo"
                 aria-label="Maximo"
                 v-model="searchData.max_price"
+                v-bind="money"
               />
             </div>
 
             <p class="mb-2">Superficie de terreno (m²)</p>
             <div class="input-group mb-3 input-group-sm">
-              <input
-                type="number"
+              <Money
                 min="0"
                 class="form-control"
                 placeholder="Minimo"
                 aria-label="Minimo"
                 v-model="searchData.min_lot_size"
+                v-bind="area"
               />
-              <input
-                type="number"
+              <Money
                 min="0"
                 class="form-control"
                 placeholder="Maximo"
                 aria-label="Maximo"
                 v-model="searchData.max_lot_size"
+                v-bind="area"
               />
             </div>
 
             <p class="mb-2">Superficie construída (m²)</p>
             <div class="input-group mb-5 input-group-sm">
-              <input
-                type="number"
+              <Money
                 min="0"
                 class="form-control"
                 placeholder="Minimo"
                 aria-label="Minimo"
                 v-model="searchData.min_construction_size"
+                v-bind="area"
               />
-              <input
-                type="number"
+              <Money
                 min="0"
                 class="form-control"
                 placeholder="Maximo"
                 aria-label="Maximo"
                 v-model="searchData.max_construction_size"
+                v-bind="area"
               />
             </div>
 
@@ -559,7 +559,10 @@
             :property="property"
           />
 
-          <div v-if="loading" class="d-flex justify-content-center load-content">
+          <div
+            v-if="loading"
+            class="d-flex justify-content-center load-content"
+          >
             <div class="spinner-border" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
@@ -651,6 +654,7 @@ import Navbar from "../components/Navbar.vue";
 import PropertyCard from "../components/Listing/PropertyCard";
 import Footer from "../components/Footer";
 import { db } from "../firebase";
+import {Money} from 'v-money'
 
 export default {
   name: "Properties",
@@ -658,6 +662,7 @@ export default {
     Navbar,
     PropertyCard,
     Footer,
+    Money
   },
   data: () => ({
     //Para el navbar
@@ -671,15 +676,29 @@ export default {
     searchData: {
       page: 1,
       operation_type: null,
-      min_price: null,
-      max_price: null,
+      min_price: 0.00,
+      max_price: 0.00,
       min_bedrooms: null,
       min_bathrooms: null,
       min_parking_spaces: null,
-      min_construction_size: null,
-      max_construction_size: null,
-      min_lot_size: null,
-      max_lot_size: null,
+      min_construction_size: 0.00,
+      max_construction_size: 0.00,
+      min_lot_size: 0.00,
+      max_lot_size: 0.00,
+    },
+    money: {
+      decimal: ".",
+      thousands: ",",
+      prefix: "$ ",
+      precision: 2,
+      masked: false,
+    },
+    area: {
+      decimal: ".",
+      thousands: ",",
+      suffix: " m²",
+      precision: 2,
+      masked: false,
     },
     pagination: null,
 
@@ -804,15 +823,15 @@ export default {
       this.searchData = {
         page: 1,
         operation_type: null,
-        min_price: null,
-        max_price: null,
+        min_price: 0.00,
+        max_price: 0.00,
         min_bedrooms: null,
         min_bathrooms: null,
         min_parking_spaces: null,
-        min_construction_size: null,
-        max_construction_size: null,
-        min_lot_size: null,
-        max_lot_size: null,
+        min_construction_size: 0.00,
+        max_construction_size: 0.00,
+        min_lot_size: 0.00,
+        max_lot_size: 0.00,
       };
       this.getProperties();
     },
@@ -825,7 +844,7 @@ export default {
   display: none;
 }
 
-.load-content{
+.load-content {
   height: 100vh !important;
 }
 
@@ -966,12 +985,12 @@ export default {
     background-color: transparent;
     padding: 10px 7px;
     z-index: 1;
-    .filter-icon{
+    .filter-icon {
       font-size: 1.3rem;
       transition: 0.3s ease-in-out;
     }
-    .x{
-       font-size: 1.5rem;
+    .x {
+      font-size: 1.5rem;
     }
     /* div {
       width: 25px;

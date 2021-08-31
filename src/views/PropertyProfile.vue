@@ -205,7 +205,7 @@ export default {
       var url =
         "https://api.whatsapp.com/send?phone=+5216121694149" +
         "&text= *Hola!* vengo de henkomexico.com, quisiera saber más sobre la siguiente propiedad:%0a%0a" +
-        "http://henkomexico.com" +
+        "https://henkomexico.com" +
         window.location.pathname +
         "%0a";
 
