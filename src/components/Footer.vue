@@ -7,16 +7,10 @@
 
       <p class="footer-title terms-privacy-policy dv">Henko Real State</p>
       <p class="dv">
-        <strong class="text-footer-size">@Henko2021</strong>
+        <strong class="text-footer-size">@Henko2021</strong> |
         <span
-          ><a class="text-footer-size green-text" @click="goTo('/terms')">
-            Términos y condiciones</a
-          ></span
-        >
-        |
-        <span
-          ><a class="text-footer-size green-text" href="">
-            Politicas de privacidad</a
+          ><a class="text-footer-size green-text" @click="goTo('/privacy')">
+            Aviso de privacidad</a
           ></span
         >
       </p>
@@ -87,10 +81,8 @@
     </ul>
 
     <p class="terms-privacy-policy-mobile">
-      <strong>@Henko2021</strong>
-      <span><a href="" @click="goTo('/terms')">Términos y condiciones</a></span>
-      &
-      <span><a href=""> Politicas de privacidad</a></span>
+      <strong>@Henko2021</strong> |
+      <span><a @click="goTo('/privacy')">Aviso de privacidad</a></span>
     </p>
   </footer>
 </template>

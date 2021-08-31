@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Properties from '../views/Properties.vue'
 import PropertyProfile from '../views/PropertyProfile.vue'
-import Terms from '../views/Terms.vue'
+import Privacy from '../views/Privacy.vue'
 
 Vue.use(VueRouter)
 
@@ -24,9 +24,9 @@ const routes = [
     component: PropertyProfile
   },
   {
-    path: '/terms',
-    name: 'Terms',
-    component: Terms
+    path: '/privacy',
+    name: 'Privacy',
+    component: Privacy
   }
 ]
 
