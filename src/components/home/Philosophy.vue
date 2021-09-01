@@ -6,15 +6,13 @@
           <div class="col col-10 col-md-4">
             <h1
               class="green-text subtitle-text"
-              data-aos="zoom-in"
-              data-aos-duration="1000"
             >
               Un compromiso contigo y con nuestra filosofía.
             </h1>
           </div>
 
           <div class="col col-8 dv">
-            <p class="orange-text" data-aos="zoom-in" data-aos-duration="1000">
+            <p class="orange-text" >
               Siempre fieles a nuestra filosofía “Unidos por tu visión” el
               equipo de Henko hacemos 3 compromisos claves para nuestros
               clientes siempre viendo por el éxito que trae a la vida un nuevo
@@ -29,8 +27,7 @@
         <div class="img-absolute">
           <div class="row g-0 card-container">
             <div class="col col-4">
-              <div class="my-card" data-aos="zoom-in"
-              data-aos-duration="1000">
+              <div class="my-card">
                 <div class="my-card-header">
                   <p class="my-card-title green-text">Unidos por tu familia</p>
                   <img
@@ -56,8 +53,7 @@
               </div>
             </div>
             <div class="col col-4">
-              <div class="my-card" data-aos="zoom-in"
-              data-aos-duration="1000">
+              <div class="my-card">
                 <div class="my-card-header">
                   <p class="my-card-title green-text">Unidos por tu proyecto</p>
                   <img
@@ -84,7 +80,7 @@
               </div>
             </div>
             <div class="col col-4">
-              <div class="my-card" data-aos="zoom-in" data-aos-duration="1000">
+              <div class="my-card">
                 <div class="my-card-header">
                   <p class="my-card-title green-text">Unidos por tu empresa</p>
                   <img

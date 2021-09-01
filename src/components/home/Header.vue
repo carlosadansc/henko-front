@@ -2,7 +2,7 @@
   <div id="inicio" class="header container-fluid">
     <div class="row">
       <div class="col col-12 col-md-6">
-        <h1 class="green-text">
+        <h1 class="green-text" >
           <ul>
             <li class="title-text">Unidos por tu visión</li>
             <li class="title-text">desde el principio</li>
@@ -11,16 +11,17 @@
         </h1>
 
         <img
+        
           class="mv s1-bg-m"
           src="../../assets/img/s1-bg-m.png"
           alt=""
         />
 
-        <p class="orange-text general-text">
+        <p class="orange-text general-text" >
           Un servicio inmobiliario especializado en encontrar un espacio para
           ti, tus nuevos proyectos o tu familia
         </p>
-        <button @click.prevent="goTo('/properties')">
+        <button @click.prevent="goTo('/properties')" >
           Busca tu patrimonio
         </button>
       </div>

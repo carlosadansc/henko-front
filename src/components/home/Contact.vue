@@ -1,12 +1,12 @@
 <template>
     <div id="contacto" class="contact container-fluid">
       <div class="row">
-        <div class="col col-12" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="col col-12" >
           <h1 class="subtitle-text green-text text-center">
             Conecta con nuestro equipo, te ayudaremos.
           </h1>
         </div>
-        <div class="col col-12 col-md-6" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="col col-12 col-md-6" >
           <div id="form_container">
             <form
               v-if="form.success == false"
@@ -65,7 +65,7 @@
           </div>
         </div>
         <div class="col dv"></div>
-        <div class="col col-12 col-md-5" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="col col-12 col-md-5" >
           <div class="row">
             <div class="col col-12 col-md-5">
               <h1 class="subtitle2-text green-text">Contacto</h1>
